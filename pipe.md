@@ -1,35 +1,23 @@
 ```mermaid
 flowchart TD
-    A[Start: Load paul15] --> B[Quality Control QC]
-    B --> B1[Filter cells min_genes > 200]
-    B --> B2[Filter genes min_cells > 3]
-    B --> B3[Calculate % mitochondrial genes]
-    B3 --> B4[Filter cells with high %MT and high gene count]
+    A[1. Load paul15] --> B[2. Make gene names unique]
+    B --> C[3. Filter cells min_genes > 200]
+    C --> D[4. Filter genes min_cells > 3]
+    D --> E[5. Calculate % mitochondrial genes]
+    E --> F[6. Filter cells: n_genes < 2500, pct_mt < 5%]
+    F --> G[7. Normalize total counts per cell]
+    G --> H[8. Log1p transformation]
+    H --> I[9. Identify highly variable genes HVGs]
+    I --> J[10. Keep only HVGs]
+    J --> K[11. Scale the data z-score]
+    K --> L[12. PCA: Principal Component Analysis]
+    L --> M[13. Compute neighbors graph]
+    M --> N[14. Compute UMAP]
+    N --> O[15. Leiden Clustering]
+    O --> P[16. Plot UMAP with clusters]
+    P --> Q[17. Find marker genes rank_genes_groups]
+    Q --> R[18. Plot top marker genes]
 
-    B4 --> C[Normalization & HVG]
-    C --> C1[Normalize total counts per cell]
-    C --> C2[Log-transform the data]
-    C --> C3[Detect highly variable genes HVGs]
-
-    C3 --> D[Dimensionality Reduction]
-    D --> D1[Scale data z-score]
-    D --> D2[Run PCA]
-    D --> D3[Compute neighborhood graph]
-
-    D3 --> E[Clustering & Embedding]
-    E --> E1[Run Leiden clustering]
-    E --> E2[Compute UMAP for visualization]
-
-    E2 --> F[Visualization]
-    F --> F1[UMAP colored by clusters]
-    F --> F2[Optional: plot known labels]
-
-    F2 --> G[Differential Expression]
-    G --> G1[Find marker genes per cluster]
-    G --> G2[Plot top markers]
-
-    G2 --> H[Export Results or Save AnnData]
-
-    style A fill:#d0f0c0,stroke:#333,stroke-width:1px
-    style H fill:#c0e0f0,stroke:#333,stroke-width:1px
+    style A fill:#d0f0c0,stroke:#333
+    style R fill:#c0e0f0,stroke:#333
 ```
