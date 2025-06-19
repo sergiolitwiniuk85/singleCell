@@ -1,6 +1,6 @@
 ```mermaid
 flowchart TB
-    A[1 Load paul15] --> B[2 Make gene names unique]
+    A[Load paul15] --> B[Make gene names unique]
     B --> C[Filter cells min_genes > 200]
     C --> D[Filter genes min_cells > 3]
     D --> E[Calculate % mitochondrial genes]
@@ -18,6 +18,6 @@ flowchart TB
     P --> Q[Find marker genes rank_genes_groups]
     Q --> R[Plot top marker genes]
 
-    style A fill:#d0f0c0,stroke:#333
-    style R fill:#c0e0f0,stroke:#333
+    style A fill:#b0fbc0,stroke:#333
+    style R fill:#b0fbc0,stroke:#333
 ```
