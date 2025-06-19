@@ -1,18 +1,18 @@
 ```mermaid
 flowchart TD
-    A[Start: Load Toy Dataset (e.g. paul15)] --> B[Quality Control (QC)]
-    B --> B1[Filter cells (min_genes > 200)]
-    B --> B2[Filter genes (min_cells > 3)]
+    A[Start: Load paul15] --> B[Quality Control QC]
+    B --> B1[Filter cells min_genes > 200]
+    B --> B2[Filter genes min_cells > 3]
     B --> B3[Calculate % mitochondrial genes]
     B3 --> B4[Filter cells with high %MT and high gene count]
 
     B4 --> C[Normalization & HVG]
     C --> C1[Normalize total counts per cell]
     C --> C2[Log-transform the data]
-    C --> C3[Detect highly variable genes (HVGs)]
+    C --> C3[Detect highly variable genes HVGs]
 
     C3 --> D[Dimensionality Reduction]
-    D --> D1[Scale data (z-score)]
+    D --> D1[Scale data z-score]
     D --> D2[Run PCA]
     D --> D3[Compute neighborhood graph]
 
