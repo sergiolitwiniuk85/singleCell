@@ -18,6 +18,6 @@ flowchart TB
     P --> Q[Find marker genes rank_genes_groups]
     Q --> R[Plot top marker genes]
 
-    style A fill:#b0fbc0,stroke:#333
-    style R fill:#b0fbc0,stroke:#333
+    style A fill:#112373,stroke:#333
+    style R fill:#112373,stroke:#333
 ```
